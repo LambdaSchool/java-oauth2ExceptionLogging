@@ -33,7 +33,11 @@ public class UserController
                 produces = {"application/json"})
     public ResponseEntity<?> listAllUsers(HttpServletRequest request)
     {
-        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        logger.error(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at error level");
+        logger.warn(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at warn level");
+        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at info level");
+        logger.debug(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at debug level");
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at trace level");
 
         List<User> myUsers = userService.findAll();
         return new ResponseEntity<>(myUsers, HttpStatus.OK);
@@ -47,7 +51,12 @@ public class UserController
             @PathVariable
                     Long userId, HttpServletRequest request)
     {
-        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        logger.error(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at error level");
+        logger.warn(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at warn level");
+        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at info level");
+        logger.debug(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at debug level");
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at trace level");
+
 
         User u = userService.findUserById(userId);
         logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
@@ -61,7 +70,12 @@ public class UserController
     @ResponseBody
     public ResponseEntity<?> getCurrentUserName(Authentication authentication, HttpServletRequest request)
     {
-        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        logger.error(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at error level");
+        logger.warn(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at warn level");
+        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at info level");
+        logger.debug(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at debug level");
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at trace level");
+
 
         return new ResponseEntity<>(userService.findUserByName(authentication.getName()), HttpStatus.OK);
         // return new ResponseEntity<>(userService.findUserByName(authentication.getName()).getUserid(), HttpStatus.OK);
@@ -76,7 +90,12 @@ public class UserController
                                         @RequestBody
                                                 User newuser, HttpServletRequest request) throws URISyntaxException
     {
-        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        logger.error(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at error level");
+        logger.warn(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at warn level");
+        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at info level");
+        logger.debug(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at debug level");
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at trace level");
+
 
         newuser = userService.save(newuser);
 
@@ -96,7 +115,12 @@ public class UserController
             @PathVariable
                     long id, HttpServletRequest request)
     {
-        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        logger.error(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at error level");
+        logger.warn(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at warn level");
+        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at info level");
+        logger.debug(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at debug level");
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at trace level");
+
 
         userService.update(updateUser, id);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -109,7 +133,12 @@ public class UserController
             @PathVariable
                     long id, HttpServletRequest request)
     {
-        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        logger.error(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at error level");
+        logger.warn(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at warn level");
+        logger.info(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at info level");
+        logger.debug(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at debug level");
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed at trace level");
+
 
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);

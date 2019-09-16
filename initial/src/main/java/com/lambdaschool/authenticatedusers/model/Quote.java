@@ -1,8 +1,6 @@
 package com.lambdaschool.authenticatedusers.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 
@@ -10,8 +8,6 @@ import javax.persistence.*;
 @Table(name = "quotes")
 public class Quote extends Auditable
 {
-    private static final Logger logger = LoggerFactory.getLogger(Quote.class);
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long quotesid;
@@ -27,15 +23,12 @@ public class Quote extends Auditable
 
     public Quote()
     {
-        logger.info("Creating a Quote " + this);
     }
 
     public Quote(String quote, User user)
     {
         this.quote = quote;
         this.user = user;
-
-        logger.info("Creating a Quote " + this);
     }
 
     public long getQuotesid()
@@ -66,11 +59,5 @@ public class Quote extends Auditable
     public void setUser(User user)
     {
         this.user = user;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Quote{" + "quotesid=" + quotesid + ", quote='" + quote + '\'' + ", user=" + user + '}';
     }
 }
